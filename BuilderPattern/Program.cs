@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DesignPatterns;
 using static System.Console;
+using BuilderPattern;
 
 namespace DotNetDesignPatternDemos.Creational.Builder
 {
@@ -92,12 +93,15 @@ namespace DotNetDesignPatternDemos.Creational.Builder
         static void Main(string[] args)
         {
             // if you want to build a simple HTML paragraph using StringBuilder
-            var me = Person.New
-               .Called("Dmitri")
-               .WorksAsA("Quant")
-               .Born(DateTime.UtcNow)
-               .Build();
-            Console.WriteLine(me);
+            //var me = Person.New
+            //   .Called("Dmitri")
+            //   .WorksAsA("Quant")
+            //   .Born(DateTime.UtcNow)
+            //   .Build();
+            //Console.WriteLine(me);
+
+            var pb = new BuilderPattern.PersonBuilder();
+            var person = pb.Called("Dmitri").WorksAsA("Programmer");
         }
     }
 }
